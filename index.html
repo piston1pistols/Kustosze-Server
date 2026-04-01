@@ -5,67 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kustosze Server | Oficjalna Strona</title>
     <style>
-        :root { --bg: #0f0f12; --card: #16161e; --accent: #2ecc71; --error: #e74c3c; --text: #e0e0e0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 3rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .card { background: var(--card); border-radius: 16px; padding: 30px; margin-bottom: 30px; border: 1px solid #2a2a35; transition: 0.3s; position: relative; }
-        .card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(46, 204, 113, 0.1); }
-        h2 { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px; color: #fff; }
-        .btn { background: var(--accent); color: #000; padding: 18px 40px; text-decoration: none; border-radius: 12px; font-weight: 800; display: inline-block; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
-        .timeline-img { width: 100%; border-radius: 12px; filter: brightness(0.9); border: 1px solid #333; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .rules-list { list-style: none; padding: 0; }
-        .rules-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
-        .rules-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        .mod-tag { background: #252533; padding: 5px 12px; border-radius: 6px; font-size: 0.9rem; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #333; }
-        
-        .ip-box { background: #252533; padding: 12px; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; border: 1px dashed var(--accent); margin-top: 15px; transition: 0.2s; }
-        .ip-box:hover { background: #2a2a3d; }
-        #server-status { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; }
-        #status-details { color: #888; margin-bottom: 10px; }
+    /* 1. Подключаем шрифт и задаем цвета */
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
 
-      @media (max-width: 600px) { 
-    .grid { grid-template-columns: 1fr; } 
+    /* Эффект появления */
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-.timeline-img.zoom {
-    transform: scale(1.8);
-    z-index: 9999;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    cursor: zoom-out;
+/* Применяем анимацию к карточкам */
+.card {
+    animation: fadeInUp 0.8s ease backwards;
 }
 
-.timeline-img {
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
-}
+/* Очередность появления (каждая следующая чуть позже) */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+    :root { 
+        --bg: #0f0f12; 
+        --card: #16161e; 
+        --accent: #2ecc71; 
+        --error: #e74c3c; 
+        --text: #e0e0e0; 
+    }
+
+    body { 
+        background-color: var(--bg); 
+        color: var(--text); 
+        font-family: 'Inter', sans-serif; 
+        margin: 0; 
+        line-height: 1.6; 
+    }
+
+    /* Ограничитель ширины */
+    .container { 
+        max-width: 850px; 
+        margin: 0 auto; 
+        padding: 40px 20px; 
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        font-family: 'Rajdhani', sans-serif;
+    }
+
+    .main-title {
+        font-size: 5rem; /* Уменьшили, чтобы текст не был слишком широким */
+        margin: 0;
+        line-height: 1;
+        letter-spacing: 8px;
+        background: linear-gradient(180deg, #ffffff 40%, #2ecc71 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 20px rgba(46, 204, 113, 0.4));
+    }
+
+    .server-label {
+        font-size: 1.8rem;
+        color: #2ecc71;
+        font-weight: 900;
+        letter-spacing: 12px;
+        text-transform: uppercase;
+        margin-top: -5px;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(46, 204, 113, 0.8);
+        opacity: 0.9;
+    }
+
+    .header p {
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+        opacity: 0.6;
+    }
+
+    .card { background: var(--card); border-radius: 16px; padding: 30px; margin-bottom: 30px; border: 1px solid #2a2a35; transition: 0.3s; position: relative; }
+    .card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(46, 204, 113, 0.1); }
+    h2 { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px; color: #fff; }
+    
+    .btn { background: var(--accent); color: #000; padding: 18px 40px; text-decoration: none; border-radius: 12px; font-weight: 800; display: inline-block; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
+    
+    .ip-box { background: #252533; padding: 12px; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; border: 1px dashed var(--accent); margin-top: 15px; transition: 0.2s; }
+    .mod-tag { background: #252533; padding: 5px 12px; border-radius: 6px; font-size: 0.9rem; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #333; }
+
+    .timeline-img { width: 100%; border-radius: 12px; transition: transform 0.3s ease; cursor: zoom-in; border: 1px solid #333; }
+    .timeline-img.zoom { transform: scale(1.8); z-index: 9999; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); cursor: zoom-out; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .rules-list { list-style: none; padding: 0; }
+    .rules-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+    .rules-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .main-title { font-size: 3rem; } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>KUSTOSZE SERVER</h1>
-        <p>Survival, Ekonomia i Rozwój Etapowy</p>
-    </div>
+<div class="header">
+    <h1 class="main-title">KUSTOSZE</h1>
+    <div class="server-label">SERVER</div>
+    <p>Survival, Ekonomia i Rozwój Etapowy</p>
+</div>
 
-    <div class="card" style="text-align: center;">
+<div class="container"> <div class="card" style="text-align: center;">
         <h2>📊 STATUS SERWERA</h2>
         <div id="server-status">Łączenie...</div>
-        <div id="status-details">Pobieranie danych...</div>
+        <div id="status-details">Pobieranie данных...</div>
         <div class="ip-box" onclick="copyIP()" title="Kliknij, aby skopiować">
             <span>IP: <strong id="ip-addr">womb-rv.gl.joinmc.link</strong></span>
-            <small style="color: var(--accent);">(Kopiuj)</small>
         </div>
     </div>
 
     <div class="card" style="text-align: center;">
         <h2>📥 DOŁĄCZ DO GRY</h2>
-        <p>Aby zagrać, potrzebujesz naszej paczki modów (Fabric).</p>
+        <p>Aby zagrać, potrzebujesz нашей paczki modów (Fabric).</p>
         <br>
         <a href="https://github.com/piston1pistols/Kustosze-Server/releases/download/v26.1/Kustosze.26.1.zip" class="btn">POBIERZ MODPACK (.zip)</a>
         <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">Wersja: 26.1 | Hostowane na GitHub</p>
@@ -74,21 +140,21 @@
     <div class="card">
         <h2>🛠 CO ZAWIERA PACZKA?</h2>
         <div class="mod-tag">🎙 Simple Voice Chat (Czat głosowy)</div>
-        <div class="mod-tag">👨‍🍳 Farmer's Delight (Nowe jedzenie i dekoracje)</div>
-        <div class="mod-tag">🗺 JourneyMap (Interaktywna mapa)</div>
-        <div class="mod-tag">🏛 Macaw's Mods & Polydecoration (Dekoracje)</div>
-        <div class="mod-tag">✨ Beautiful (Estetyka świata)</div>
-        <div class="mod-tag">⚡ Sodium/Iris (Optymalizacja FPS)</div>
-        <div class="mod-tag">📦 Przydatne dodatki i poprawki</div>
+        <div class="mod-tag">👨‍🍳 Farmer's Delight (Nowe jedzenie)</div>
+        <div class="mod-tag">🗺️ JourneyMap (Interaktywna mapa)</div>
+        <div class="mod-tag">🏛 Macaw's Mods (Meble)</div>
+        <div class="mod-tag">🌹 Beautify (Dekoracje)</div>
+        <div class="mod-tag">⚡ Sodium/Iris (Optymalizacja)</div>
+        <div class="mod-tag">📦 Dodatki (Dodatkowe funkcje)</div>
     </div>
 
     <div class="card">
-    <h2>⏳ OŚ CZASU</h2>
-    <img src="1000010981.png" alt="Timeline" class="timeline-img" onclick="this.classList.toggle('zoom')" title="Kliknij, aby powiększyć">
-    <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">
-        *Kliknij na obrazek, aby go powiększyć/pomniejszyć.
-    </p>
-</div>
+        <h2>⏳ OŚ CZASU</h2>
+        <img src="1000010981.png" alt="Timeline" class="timeline-img" onclick="this.classList.toggle('zoom')" title="Kliknij, aby powiększyć">
+        <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">
+            *Kliknij на obrazek, aby go powiększyć.
+        </p>
+    </div>
 
     <div class="card">
         <h2>📜 GŁÓWNE ZASADY</h2>
@@ -97,34 +163,31 @@
                 <h3 style="color: var(--accent);">✅ DOZWOLONE</h3>
                 <ul class="rules-list">
                     <li>Wolny handel i ekonomia</li>
-                    <li>Wybory i polityka serwerowa</li>
-                    <li>Budowanie wspólnych osad</li>
+                    <li>Wybory i polityka</li>
+                    <li>Budowanie osad</li>
                     <li>Wojny ekonomiczne</li>
                 </ul>
             </div>
             <div>
                 <h3 style="color: var(--error);">❌ ZABRONIONE</h3>
                 <ul class="rules-list">
-                    <li>Grieferstwo i kradzieże (Ban)</li>
-                    <li>Osadnicy-Bibliotekarze (do 18 dnia)</li>
-                    <li>Wchodzenie do fortecy (do 22 dnia)</li>
-                    <li>Wydobywanie Netherytu (do 22 dnia)</li>
+                    <li>Grieferstwo i kradzieże</li>
+                    <li>Bibliotekarze (do 18 dnia)</li>
+                    <li>Forteca (do 22 dnia)</li>
+                    <li>Netheryt (do 22 dnia)</li>
                 </ul>
             </div>
         </div>
     </div>
-</div>
 
-<script>
+</div> <script>
     const IP = 'womb-rv.gl.joinmc.link'; 
-
     async function updateStatus() {
         try {
             const res = await fetch(`https://api.mcstatus.io/v2/status/java/${IP}`);
             const data = await res.json();
             const statusText = document.getElementById('server-status');
             const details = document.getElementById('status-details');
-
             if (data.online) {
                 statusText.innerHTML = '<span style="color: var(--accent);">Online ✅</span>';
                 details.innerHTML = `Graczy: <strong>${data.players.online} / ${data.players.max}</strong> | Wersja: <strong>26.1</strong>`;
@@ -133,16 +196,14 @@
                 details.innerHTML = 'Serwer jest obecnie wyłączony';
             }
         } catch (e) {
-            document.getElementById('server-status').innerText = 'Błąd połąчения';
+            document.getElementById('server-status').innerText = 'Błąd połączenia';
         }
     }
-
     function copyIP() {
         const ip = document.getElementById('ip-addr').innerText;
         navigator.clipboard.writeText(ip);
         alert('IP skopiowane: ' + ip);
     }
-
     updateStatus();
     setInterval(updateStatus, 30000);
 </script>
