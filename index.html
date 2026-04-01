@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наш Сервер | Официальный портал</title>
+    <title>Kustosze Server | Oficjalna Strona</title>
     <style>
         :root { --bg: #0f0f12; --card: #16161e; --accent: #2ecc71; --error: #e74c3c; --text: #e0e0e0; }
         body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
@@ -15,7 +15,7 @@
         h2 { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px; color: #fff; }
         .btn { background: var(--accent); color: #000; padding: 18px 40px; text-decoration: none; border-radius: 12px; font-weight: 800; display: inline-block; font-size: 1.2rem; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
-        .timeline-img { width: 100%; border-radius: 12px; filter: brightness(0.9); }
+        .timeline-img { width: 100%; border-radius: 12px; filter: brightness(0.9); border: 1px solid #333; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .rules-list { list-style: none; padding: 0; }
         .rules-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
@@ -28,52 +28,53 @@
 
 <div class="container">
     <div class="header">
-        <h1>PROJECT SERVER</h1>
-        <p>Выживание, экономика и поэтапное развитие</p>
+        <h1>KUSTOSZE SERVER</h1>
+        <p>Survival, Ekonomia i Rozwój Etapowy</p>
     </div>
 
     <div class="card" style="text-align: center;">
-        <h2>📥 ИГРАТЬ НА СЕРВЕРЕ</h2>
-        <p>Для входа нужна наша сборка (Fabric + Моды). Просто распакуй в .minecraft</p>
+        <h2>📥 DOŁĄCZ DO GRY</h2>
+        <p>Aby zagrać, potrzebujesz naszej paczki modów (Fabric). Rozpakuj ją w folderze .minecraft</p>
         <br>
-        <a href="ССЫЛКА_НА_ТВОЙ_АРХИВ" class="btn">СКАЧАТЬ МОДПАК (.zip)</a>
-        <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">Версия игры: 1.20.1 | Ссылка ведет на GitHub</p>
+        <a href="LINK_DO_TWOJEJ_PACZKI" class="btn">POBIERZ MODPACK (.zip)</a>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">Wersja gry: 1.20.1 | Hostowane na GitHub</p>
     </div>
 
     <div class="card">
-        <h2>🛠 ЧТО ВНУТРИ СБОРКИ?</h2>
-        <div class="mod-tag">🎙 Simple Voice Chat (Голосовой чат)</div>
-        <div class="mod-tag">🎭 Emotecraft (Эмоции)</div>
-        <div class="mod-tag">🗺 JourneyMap (Карта)</div>
-        <div class="mod-tag">📊 Jade (Инфо об объектах)</div>
-        <div class="mod-tag">⚡ Sodium/Iris (Оптимизация)</div>
-        <div class="mod-tag">📦 Полезные мелочи и оптимизация</div>
+        <h2>🛠 CO ZAWIERA PACZKA?</h2>
+        <div class="mod-tag">🎙 Simple Voice Chat (Czat głosowy)</div>
+        <div class="mod-tag">🎭 Emotecraft (Animacje postaci)</div>
+        <div class="mod-tag">🗺 JourneyMap (Mapa pod klawiszem J)</div>
+        <div class="mod-tag">📊 Jade (Informacje o blokach)</div>
+        <div class="mod-tag">⚡ Sodium/Iris (Optymalizacja FPS)</div>
+        <div class="mod-tag">📦 Przydatne dodatki i poprawki</div>
     </div>
 
     <div class="card">
-        <h2>⏳ ГРАФИК РАЗВИТИЯ (TIMELINE)</h2>
+        <h2>⏳ HARMONOGRAM ROZWOJU (TIMELINE)</h2>
         <img src="1000010981.png" alt="Timeline" class="timeline-img">
+        <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">*Zwracaj uwagę na daty, aby nie przegapić otwarcia nowych światów i mechanik.</p>
     </div>
 
     <div class="card">
-        <h2>📜 ОСНОВНЫЕ ЗАКОНЫ</h2>
+        <h2>📜 GŁÓWNE ZASADY</h2>
         <div class="grid">
             <div>
-                <h3 style="color: var(--accent);">✅ РАЗРЕШЕНО</h3>
+                <h3 style="color: var(--accent);">✅ DOZWOLONE</h3>
                 <ul class="rules-list">
-                    <li>Свободная торговля</li>
-                    <li>Выборы и политика</li>
-                    <li>Строительство поселений</li>
-                    <li>Экономические войны</li>
+                    <li>Wolny handel i ekonomia</li>
+                    <li>Wybory i polityka serwerowa</li>
+                    <li>Budowanie wspólnych osad</li>
+                    <li>Wojny ekonomiczne</li>
                 </ul>
             </div>
             <div>
-                <h3 style="color: var(--error);">❌ ЗАПРЕЩЕНО</h3>
+                <h3 style="color: var(--error);">❌ ZABRONIONE</h3>
                 <ul class="rules-list">
-                    <li>Гриферство (бан)</li>
-                    <li>Жители-библиотекари (до 14 дня)</li>
-                    <li>Походы в крепость (до 14 дня)</li>
-                    <li>Добыча Незерита (до 14 дня)</li>
+                    <li>Grieferstwo i kradzieże (Ban)</li>
+                    <li>Osadnicy-Bibliotekarze (do 14 dnia)</li>
+                    <li>Wchodzenie do fortecy (do 14 dnia)</li>
+                    <li>Wydobywanie Netherytu (do 14 dnia)</li>
                 </ul>
             </div>
         </div>
@@ -81,5 +82,4 @@
 </div>
 
 </body>
-  </html>
-
+</html>
