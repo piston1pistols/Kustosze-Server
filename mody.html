@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opis Modów | Kustosze Server</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
+
+/* Кнопка POWRÓT в стиле неоновой кнопки */
+.btn-back {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 800;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+    color: #000;
+}
+
+/* Подзаголовок в стиле index.html */
+.header p {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+        :root { 
+            --bg: #0f0f12; 
+            --card: #16161e; 
+            --accent: #2ecc71; 
+            --text: #e0e0e0; 
+        }
+
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .header { text-align: center; margin-bottom: 50px; }
+        
+        .main-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(180deg, #ffffff 40%, #2ecc71 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+        }
+
+        /* Базовая карточка */
+.card { 
+    background: var(--card); 
+    border-radius: 16px; 
+    padding: 25px; 
+    margin-bottom: 25px; 
+    border: 1px solid #2a2a35;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Плавный переход */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Неоновый эффект при наведении на всю карточку */
+.card:hover { 
+    border-color: var(--accent); 
+    transform: translateY(-5px); /* Легкий подъем */
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2), 
+                inset 0 0 15px rgba(46, 204, 113, 0.05); 
+}
+
+/* Анимация заголовка внутри карточки */
+.card h2 { 
+    transition: 0.3s;
+}
+
+.card:hover h2 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.8); /* Неоновое свечение текста */
+    border-left: 6px solid var(--accent); /* Утолщение полоски слева */
+    padding-left: 20px;
+}
+
+/* Анимация самих модов внутри группы */
+.mod-entry {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #252533;
+    transition: 0.3s;
+}
+
+.card:hover .mod-entry {
+    border-bottom-color: rgba(46, 204, 113, 0.2); /* Подсветка разделителей */
+}
+
+.mod-name {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Подсветка названия мода при наведении конкретно на него */
+.mod-entry:hover .mod-name {
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.6);
+    transform: translateX(5px); /* Сдвиг вправо */
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="btn-back">← POWRÓT</a>
+    
+    <div class="header">
+        <h1 class="main-title">PRZEWODNIK PO MODACH</h1>
+        <p>Dowiedz się, co zmienia każda modyfikacja na naszym serwerze</p>
+    </div>
+
+    <div class="card">
+        <h2>🎮 Gameplay i Nowe Funkcje</h2>
+        
+        <div class="mod-entry">
+            <span class="mod-name">Simple Voice Chat</span>
+            <span class="mod-desc">Kluczowy mod na serwerze. Pozwala na rozmowę głosową z graczami w grze (odległość ma znaczenie).</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Farmer's Delight (+ dodatki More/Storage/Spanish)</span>
+            <span class="mod-desc">Ogromnie rozbudowuje rolnictwo i gotowanie. Nowe dania, narzędzia kuchenne i system upraw.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Saro´s Money Mod</span>
+            <span class="mod-desc">Dodaje fizyczną walutę na serwer, co pozwala na budowanie prawdziwej ekonomii i handlu.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">JourneyMap</span>
+            <span class="mod-desc">Twoja mini-mapa i mapa świata. Pozwala stawiać waypointy i widzieć graczy w okolicy.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">AppleSkin</span>
+            <span class="mod-desc">Pokazuje, ile punktów głodu i nasycenia przywróci dane jedzenie.</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🏗️ Budowanie i Dekoracje</h2>
+        
+        <div class="mod-entry">
+            <span class="mod-name">Macaw's Mods (Doors, Windows, Roofs, etc.)</span>
+            <span class="mod-desc">Seria modów dodająca setki nowych wariantów drzwi, okien, dachów, mostów i mebli.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Beautify / PolyDecorations</span>
+            <span class="mod-desc">Dodaje drobne detale dekoracyjne, takie jak wiszące rośliny, lampiony i ozdoby na bloki.</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>✨ Wizualne i Atmosfera</h2>
+        
+        <div class="mod-entry">
+            <span class="mod-name">AmbientSounds / Presence Footsteps</span>
+            <span class="mod-desc">Całkowicie zmienia dźwięki otoczenia (las, jaskinie) oraz odgłosy kroków na różnych blokach.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Sound Physics Remastered</span>
+            <span class="mod-desc">Dodaje echo w jaskiniach i realistyczne tłumienie dźwięków przez ściany.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">3d-Skin-Layers</span>
+            <span class="mod-desc">Sprawia, że warstwy skinów graczy stają się wypukłe (3D), co wygląda znacznie lepiej.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Visuality / Falling Leaves</span>
+            <span class="mod-desc">Dodaje drobne efekty: spadające liście z drzew, cząsteczki uderzeń i lepsze bryzgi wody.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">Iris Shaders</span>
+            <span class="mod-desc">Mod odpowiedzialny za działanie shaderów. Pozwala na piękną grafikę przy dobrej wydajności.</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>⚡ Wydajność i Optymalizacja</h2>
+        
+        <div class="mod-entry">
+            <span class="mod-name">Sodium / Lithium / FerriteCore</span>
+            <span class="mod-desc">Święta trójca optymalizacji. Zwiększają FPS, naprawiają błędy silnika i zmniejszają zużycie RAM.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">EntityCulling</span>
+            <span class="mod-desc">Nie renderuje zwierząt i przedmiotów, których nie widzisz (np. za ścianą), co daje duży skok FPS.</span>
+        </div>
+
+        <div class="mod-entry">
+            <span class="mod-name">ModernFix / Starlight</span>
+            <span class="mod-desc">Przyspieszają ładowanie gry i optymalizują system oświetlenia Minecrafta.</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
