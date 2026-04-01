@@ -27,7 +27,20 @@
         #server-status { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; }
         #status-details { color: #888; margin-bottom: 10px; }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+      @media (max-width: 600px) { 
+    .grid { grid-template-columns: 1fr; } 
+}
+
+.timeline-img {
+    cursor: zoom-in;
+    transition: 0.3s;
+}
+
+.timeline-img:active {
+    transform: scale(1.5);
+    z-index: 1000;
+    position: relative;
+}
     </style>
 </head>
 <body>
@@ -69,7 +82,9 @@
 
     <div class="card">
         <h2>⏳ OŚ CZASU</h2>
-        <img src="1000010981.png" alt="Timeline" class="timeline-img">
+        <a href="1000010981.png" target="_blank">
+    <img src="1000010981.png" alt="Timeline" class="timeline-img" title="Kliknij, aby powiększyć">
+</a>
         <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">*Zwracaj uwagę na daty, aby nie przegapić kluczowych wydarzeń.</p>
     </div>
 
