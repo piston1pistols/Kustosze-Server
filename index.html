@@ -8,6 +8,96 @@
     /* 1. Подключаем шрифт и задаем цвета */
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
 
+/* Стили для интерактивного таймлайна */
+/* Общий контейнер */
+.timeline-card {
+    padding: 0; /* Убираем внутренние отступы, чтобы картинка была на всю ширину */
+    overflow: hidden;
+}
+
+.timeline-card h2 {
+    padding: 25px 25px 10px 25px;
+}
+
+/* Верхняя картинка */
+.timeline-img-top {
+    width: 100%;
+    display: block;
+    border-bottom: 2px solid var(--accent); /* Зеленая линия-разделитель */
+}
+
+/* Блок описания снизу */
+.timeline-description {
+    padding: 25px;
+    background: #0f0f12; /* Глубокий черный фон */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.timeline-phase {
+    border-left: 2px solid rgba(46, 204, 113, 0.3);
+    padding-left: 15px;
+    transition: 0.3s;
+}
+
+.timeline-phase:hover {
+    border-left: 2px solid var(--accent);
+    transform: translateY(-3px);
+}
+
+.phase-date {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--accent);
+    font-weight: 800;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+.timeline-phase p {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 0;
+    line-height: 1.4;
+}
+/* Класс для активного этапа */
+.timeline-item.active {
+    border: 2px solid #4ade80; /* Яркая зеленая рамка */
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.3); /* Мягкое свечение */
+    background: rgba(74, 222, 128, 0.05); /* Легкий фон */
+    position: relative;
+    transform: scale(1.02); /* Немного увеличиваем */
+}
+
+/* Точка-индикатор "Сейчас" */
+.timeline-item.active::before {
+    content: "• CURRENT";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: #4ade80;
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Подсветка текущего этапа */
+.timeline-phase.current {
+    background: rgba(46, 204, 113, 0.05);
+    border-radius: 0 8px 8px 0;
+    border-left-color: var(--accent);
+}
     /* Эффект появления */
 @keyframes fadeInUp {
     from { 
@@ -19,7 +109,113 @@
         transform: translateY(0); 
     }
 }
+/* Кнопка три полоски (основные настройки) */
+.menu-toggle {
+    position: fixed;
+    top: 25px; /* Чуть опустим для красоты */
+    left: 30px;
+    width: 35px; /* Немного компактнее */
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2000;
+    transition: 0.3s; /* Плавность для исчезновения */
+    opacity: 1; /* По умолчанию кнопка видна */
+}
 
+.menu-toggle div {
+    height: 4px;
+    width: 100%;
+    background-color: var(--accent); /* Твой зеленый */
+    border-radius: 2px;
+}
+
+/* === СЕКРЕТНЫЙ СОУС === */
+/* Когда у кнопки появляется класс .active, мы делаем ее прозрачной */
+.menu-toggle.active {
+    opacity: 0;
+    pointer-events: none; /* Чтобы нельзя было нажать на невидимую кнопку */
+}
+
+/* Стили самого меню (изначально скрыто слева) */
+.sidebar {
+    position: fixed;
+    left: -280px; /* Прячем за экран */
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: #111116;
+    border-right: 2px solid var(--accent);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1500;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Когда меню активно */
+.sidebar.active {
+    left: 0;
+    box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+}
+
+/* Затемнение фона */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    z-index: 1400;
+    backdrop-filter: blur(3px);
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Основной контент больше не сдвинут по умолчанию */
+.main-content {
+    margin-left: 0;
+    transition: 0.4s;
+}
+
+/* Настройки пунктов меню из прошлого шага остаются */
+.nav-item {
+    color: #888;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.nav-item:hover { color: #fff; background: rgba(46, 204, 113, 0.1); }
+.nav-item.active { color: var(--accent); background: rgba(46, 204, 113, 0.15); border-left: 4px solid var(--accent); }
+
+/* Адаптация для телефонов: скрываем меню или делаем его сверху */
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 2px solid var(--accent);
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .sidebar-logo { display: none; }
+}
 /* Применяем анимацию к карточкам */
 .card {
     animation: fadeInUp 0.8s ease backwards;
@@ -40,6 +236,7 @@
     }
 
     body { 
+        scroll-behavior: smooth;
         background-color: var(--bg); 
         color: var(--text); 
         font-family: 'Inter', sans-serif; 
@@ -114,11 +311,28 @@
 </head>
 <body>
 
-<div class="header">
-    <h1 class="main-title">KUSTOSZE</h1>
-    <div class="server-label">SERVER</div>
-    <p>Survival, Ekonomia i Rozwój Etapowy</p>
+<div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
 </div>
+
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">MENU</div>
+    <a href="index.html" class="nav-item active">🏠 Główna</a>
+    <a href="konstytucja.html" class="nav-item">📜 Konstytucja</a>
+    <a href="mody.html" class="nav-item">📦 Lista modów</a>
+    <a href="MAP_URL" target="_blank" class="nav-item">🌍 DynMap</a>
+</div>
+
+<div class="main-content">
+    <div class="header">
+        <h1 class="main-title">KUSTOSZE</h1>
+        <div class="server-label">SERVER</div>
+        <p>Survival, Ekonomia i Rozwój Etapowy</p>
+    </div>
 
 <div class="container"> <div class="card" style="text-align: center;">
         <h2>📊 STATUS SERWERA</h2>
@@ -131,30 +345,55 @@
 
     <div class="card" style="text-align: center;">
         <h2>📥 DOŁĄCZ DO GRY</h2>
-        <p>Aby zagrać, potrzebujesz нашей paczki modów (Fabric).</p>
+        <p>Aby zagrać, potrzebujesz naszej paczki modów (Fabric).</p>
         <br>
         <a href="https://github.com/piston1pistols/Kustosze-Server/releases/download/v26.1/Kustosze.26.1.zip" class="btn">POBIERZ MODPACK (.zip)</a>
         <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">Wersja: 26.1 | Hostowane na GitHub</p>
     </div>
 
     <div class="card">
-        <h2>🛠 CO ZAWIERA PACZKA?</h2>
-        <div class="mod-tag">🎙 Simple Voice Chat (Czat głosowy)</div>
-        <div class="mod-tag">👨‍🍳 Farmer's Delight (Nowe jedzenie)</div>
-        <div class="mod-tag">🗺️ JourneyMap (Interaktywna mapa)</div>
-        <div class="mod-tag">🏛 Macaw's Mods (Meble)</div>
-        <div class="mod-tag">🌹 Beautify (Dekoracje)</div>
-        <div class="mod-tag">⚡ Sodium/Iris (Optymalizacja)</div>
-        <div class="mod-tag">📦 Dodatki (Dodatkowe funkcje)</div>
+    <h2>🛠 MODYFIKACJE</h2>
+    <p>Nasz serwer opiera się na starannie dobranej paczce modów, która poprawia optymalizację, dodaje nowe mechaniki oraz piękne dekoracje.</p>
+    
+    <div style="margin: 20px 0;">
+        <div class="mod-tag">🎙 Voice Chat</div>
+        <div class="mod-tag">👨‍🍳 Farmer's Delight</div>
+        <div class="mod-tag">🪑 Macaw's mods</div>
     </div>
 
-    <div class="card">
-        <h2>⏳ OŚ CZASU</h2>
-        <img src="1000010981.png" alt="Timeline" class="timeline-img" onclick="this.classList.toggle('zoom')" title="Kliknij, aby powiększyć">
-        <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">
-            *Kliknij на obrazek, aby go powiększyć.
-        </p>
+    <br>
+    <a href="mody.html" class="btn" style="font-size: 1rem; padding: 12px 25px;">ZOBACZ PEŁNĄ LISTĘ</a>
+</div>
+
+<div class="card timeline-card">
+    <h2>⏳ OŚ CZASU SERWERA</h2>
+    
+    <div class="timeline-visual">
+        <img src="1000010981.png" alt="Icons Timeline" class="timeline-img-top">
     </div>
+
+    <div class="timeline-description">
+        <div class="timeline-phase">
+            <span class="phase-date current">Dzień 1 - 3</span>
+            <p>Przygotowanie do gospodarki, wybór miejsca na wioskę и specjalizacji.</p>
+        </div>
+        
+        <div class="timeline-phase">
+            <span class="phase-date">Dzień 3 - 7</span>
+            <p>Rozpoczęcie ekonomii, ustalanie cen и pierwsze kampanie wyborcze.</p>
+        </div>
+
+        <div class="timeline-phase">
+            <span class="phase-date">Dzień 7 - 14</span>
+            <p>Zakaz brania diamentów ze struktur, finał wyborów Burmistrza.</p>
+        </div>
+
+        <div class="timeline-phase">
+            <span class="phase-date">Dzień 14+</span>
+            <p>Odblokowanie Netheru (Forteca i Bastion) oraz zbieranie Netherytu.</p>
+        </div>
+    </div>
+</div>
 
     <div class="card">
         <h2>📜 GŁÓWNE ZASADY</h2>
@@ -199,13 +438,35 @@
             document.getElementById('server-status').innerText = 'Błąd połączenia';
         }
     }
-    function copyIP() {
-        const ip = document.getElementById('ip-addr').innerText;
-        navigator.clipboard.writeText(ip);
-        alert('IP skopiowane: ' + ip);
-    }
+   function copyIP() {
+    const ipText = document.getElementById('ip-addr');
+    const originalText = ipText.innerText;
+    
+    // Копируем текст
+    navigator.clipboard.writeText(originalText);
+    
+    // Эффект подтверждения
+    ipText.innerText = 'Skopiowano! ✅';
+    ipText.style.color = '#2ecc71';
+    
+    // Возвращаем как было через 2 секунды
+    setTimeout(() => {
+        ipText.innerText = originalText;
+        ipText.style.color = '';
+    }, 2000);
+}
     updateStatus();
     setInterval(updateStatus, 30000);
+
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const toggleBtn = document.querySelector('.menu-toggle'); // Находим саму кнопку
+
+    sidebar.classList.toggle('active'); // Выдвигаем меню
+    overlay.classList.toggle('active'); // Затемняем фон
+    toggleBtn.classList.toggle('active'); // Делаем кнопку невидимой
+}
 </script>
 
 </body>
