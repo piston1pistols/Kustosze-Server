@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наш Сервер | Официальный портал</title>
+    <style>
+        :root { --bg: #0f0f12; --card: #16161e; --accent: #2ecc71; --error: #e74c3c; --text: #e0e0e0; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 3rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .card { background: var(--card); border-radius: 16px; padding: 30px; margin-bottom: 30px; border: 1px solid #2a2a35; transition: 0.3s; }
+        .card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(46, 204, 113, 0.1); }
+        h2 { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px; color: #fff; }
+        .btn { background: var(--accent); color: #000; padding: 18px 40px; text-decoration: none; border-radius: 12px; font-weight: 800; display: inline-block; font-size: 1.2rem; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
+        .timeline-img { width: 100%; border-radius: 12px; filter: brightness(0.9); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .rules-list { list-style: none; padding: 0; }
+        .rules-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .rules-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .mod-tag { background: #252533; padding: 5px 12px; border-radius: 6px; font-size: 0.9rem; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #333; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>PROJECT SERVER</h1>
+        <p>Выживание, экономика и поэтапное развитие</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+        <h2>📥 ИГРАТЬ НА СЕРВЕРЕ</h2>
+        <p>Для входа нужна наша сборка (Fabric + Моды). Просто распакуй в .minecraft</p>
+        <br>
+        <a href="ССЫЛКА_НА_ТВОЙ_АРХИВ" class="btn">СКАЧАТЬ МОДПАК (.zip)</a>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">Версия игры: 1.20.1 | Ссылка ведет на GitHub</p>
+    </div>
+
+    <div class="card">
+        <h2>🛠 ЧТО ВНУТРИ СБОРКИ?</h2>
+        <div class="mod-tag">🎙 Simple Voice Chat (Голосовой чат)</div>
+        <div class="mod-tag">🎭 Emotecraft (Эмоции)</div>
+        <div class="mod-tag">🗺 JourneyMap (Карта)</div>
+        <div class="mod-tag">📊 Jade (Инфо об объектах)</div>
+        <div class="mod-tag">⚡ Sodium/Iris (Оптимизация)</div>
+        <div class="mod-tag">📦 Полезные мелочи и оптимизация</div>
+    </div>
+
+    <div class="card">
+        <h2>⏳ ГРАФИК РАЗВИТИЯ (TIMELINE)</h2>
+        <img src="1000010981.png" alt="Timeline" class="timeline-img">
+    </div>
+
+    <div class="card">
+        <h2>📜 ОСНОВНЫЕ ЗАКОНЫ</h2>
+        <div class="grid">
+            <div>
+                <h3 style="color: var(--accent);">✅ РАЗРЕШЕНО</h3>
+                <ul class="rules-list">
+                    <li>Свободная торговля</li>
+                    <li>Выборы и политика</li>
+                    <li>Строительство поселений</li>
+                    <li>Экономические войны</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--error);">❌ ЗАПРЕЩЕНО</h3>
+                <ul class="rules-list">
+                    <li>Гриферство (бан)</li>
+                    <li>Жители-библиотекари (до 14 дня)</li>
+                    <li>Походы в крепость (до 14 дня)</li>
+                    <li>Добыча Незерита (до 14 дня)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+  </html>
+
