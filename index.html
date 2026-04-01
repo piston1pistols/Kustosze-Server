@@ -31,15 +31,17 @@
     .grid { grid-template-columns: 1fr; } 
 }
 
-.timeline-img {
-    cursor: zoom-in;
-    transition: 0.3s;
+.timeline-img.zoom {
+    transform: scale(1.8);
+    z-index: 9999;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    cursor: zoom-out;
 }
 
-.timeline-img:active {
-    transform: scale(1.5);
-    z-index: 1000;
-    position: relative;
+.timeline-img {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
 }
     </style>
 </head>
@@ -81,12 +83,12 @@
     </div>
 
     <div class="card">
-        <h2>⏳ OŚ CZASU</h2>
-        <a href="1000010981.png" target="_blank">
-    <img src="1000010981.png" alt="Timeline" class="timeline-img" title="Kliknij, aby powiększyć">
-</a>
-        <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">*Zwracaj uwagę na daty, aby nie przegapić kluczowych wydarzeń.</p>
-    </div>
+    <h2>⏳ OŚ CZASU</h2>
+    <img src="1000010981.png" alt="Timeline" class="timeline-img" onclick="this.classList.toggle('zoom')" title="Kliknij, aby powiększyć">
+    <p style="font-size: 0.9rem; color: #888; margin-top: 10px; text-align: center;">
+        *Kliknij na obrazek, aby go powiększyć/pomniejszyć.
+    </p>
+</div>
 
     <div class="card">
         <h2>📜 GŁÓWNE ZASADY</h2>
