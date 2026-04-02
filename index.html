@@ -8,6 +8,31 @@
     /* 1. Подключаем шрифт и задаем цвета */
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
 
+    /* Стилизация скроллбара для блока временной шкалы */
+.timeline-description::-webkit-scrollbar {
+    height: 8px; /* Высота горизонтального скроллбара */
+}
+
+.timeline-description::-webkit-scrollbar-track {
+    background: #0f0f12; /* Цвет дорожки (совпадает с фоном блока) */
+    border-radius: 10px;
+}
+
+.timeline-description::-webkit-scrollbar-thumb {
+    background: var(--accent); /* Твой зеленый цвет #2ecc71 */
+    border-radius: 10px;
+    border: 2px solid #0f0f12; /* Небольшой отступ, чтобы выглядело аккуратнее */
+}
+
+.timeline-description::-webkit-scrollbar-thumb:hover {
+    background: #27ae60; /* Чуть темнее при наведении */
+}
+
+/* Для Firefox */
+.timeline-description {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) #0f0f12;
+}
 /* Стили для интерактивного таймлайна */
 /* Общий контейнер */
 .timeline-card {
@@ -27,15 +52,21 @@
 }
 
 /* Блок описания снизу */
+/* Блок описания снизу — теперь в ряд! */
 .timeline-description {
     padding: 25px;
     background: #0f0f12; /* Глубокий черный фон */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: flex;            /* Включаем флекс (в ряд) */
+    flex-direction: row;      /* Направление — строка */
+    justify-content: space-between; /* Растягиваем элементы по ширине */
+    gap: 15px;                /* Расстояние между этапами */
+    overflow-x: auto;         /* Если экран совсем узкий, появится прокрутка, а не каша */
 }
 
+/* Немного подправим сами фазы, чтобы они не сжимались слишком сильно */
 .timeline-phase {
+    flex: 1;                  /* Все блоки будут равной ширины */
+    min-width: 150px;         /* Минимальная ширина, чтобы текст не слипался */
     border-left: 2px solid rgba(46, 204, 113, 0.3);
     padding-left: 15px;
     transition: 0.3s;
@@ -94,9 +125,22 @@
 
 /* Подсветка текущего этапа */
 .timeline-phase.current {
-    background: rgba(46, 204, 113, 0.05);
-    border-radius: 0 8px 8px 0;
-    border-left-color: var(--accent);
+    background: rgba(46, 204, 113, 0.1); /* Легкий зеленый фон */
+    border-left: 4px solid var(--accent) !important; /* Яркая полоса слева */
+    box-shadow: inset 5px 0 15px rgba(46, 204, 113, 0.1); /* Внутреннее свечение */
+    position: relative;
+}
+
+/* Добавим маленькую надпись "NOW" сверху */
+.timeline-phase.current::after {
+    content: "AKTUALNY ETAP";
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    font-weight: bold;
 }
     /* Эффект появления */
 @keyframes fadeInUp {
@@ -373,24 +417,29 @@
     </div>
 
     <div class="timeline-description">
-        <div class="timeline-phase">
-            <span class="phase-date current">Dzień 1 - 3</span>
+        <div class="timeline-phase current">
+            <span class="phase-date">Dzień 1 - 3</span>
             <p>Przygotowanie do gospodarki, wybór miejsca na wioskę и specjalizacji.</p>
         </div>
         
         <div class="timeline-phase">
             <span class="phase-date">Dzień 3 - 7</span>
-            <p>Rozpoczęcie ekonomii, ustalanie cen и pierwsze kampanie wyborcze.</p>
+            <p>Rozpoczęcie ekonomii, ustalanie cen i pierwsze kampanie wyborcze.</p>
         </div>
 
         <div class="timeline-phase">
-            <span class="phase-date">Dzień 7 - 14</span>
+            <span class="phase-date">Dzień 7 - 10</span>
             <p>Zakaz brania diamentów ze struktur, finał wyborów Burmistrza.</p>
         </div>
 
         <div class="timeline-phase">
-            <span class="phase-date">Dzień 14+</span>
-            <p>Odblokowanie Netheru (Forteca i Bastion) oraz zbieranie Netherytu.</p>
+            <span class="phase-date">Dzień 10 - 14</span>
+            <p>Zakaz robienia wiesniaka bibliotekarza,mozliwość wchodzisć do dungeonów.</p>
+        </div>
+
+        <div class="timeline-phase">
+            <span class="phase-date">Dzień 14 - 18</span>
+            <p>Zakaz wchodzenia do fortéc i bastionów i zbieranie Netherytu.</p>
         </div>
     </div>
 </div>
