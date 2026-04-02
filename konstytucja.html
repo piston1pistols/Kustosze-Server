@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konstytucja | Kustosze Server</title>
+    <style>
+    /* Копируем основные переменные и стили из index.html */
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
+    
+    :root { 
+        --bg: #0f0f12; 
+        --card: #16161e; 
+        --accent: #2ecc71; 
+        --text: #e0e0e0; 
+    }
+
+    body { 
+        background-color: var(--bg); 
+        color: var(--text); 
+        font-family: 'Inter', sans-serif; 
+        margin: 0; 
+        line-height: 1.6; 
+    }
+
+    .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+
+    /* Стили для бокового меню (такие же, как на главной) */
+    .menu-toggle { position: fixed; top: 25px; left: 30px; width: 35px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 2000; }
+    .menu-toggle div { height: 4px; width: 100%; background-color: var(--accent); border-radius: 2px; }
+    .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100vh; background: #111116; border-right: 2px solid var(--accent); padding: 60px 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1500; transition: 0.4s; }
+    .sidebar.active { left: 0; }
+    .nav-item { color: #888; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; padding: 12px 20px; border-radius: 8px; }
+    .nav-item.active { color: var(--accent); background: rgba(46, 204, 113, 0.15); border-left: 4px solid var(--accent); }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 1400; }
+    .overlay.active { display: block; }
+
+    /* Специфические стили для Конституции */
+    .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; position: relative; overflow: hidden; }
+    
+    /* Декоративный символ на фоне */
+    .const-card::before {
+        content: "⚖";
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 15rem;
+        opacity: 0.03;
+        color: var(--accent);
+        pointer-events: none;
+    }
+
+    h1.title { font-family: 'Rajdhani', sans-serif; font-size: 3rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
+    .last-update { font-size: 0.8rem; color: var(--accent); margin-bottom: 40px; opacity: 0.8; }
+
+    .article { margin-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 20px; }
+    .article-num { color: var(--accent); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; display: block; font-weight: 800; letter-spacing: 2px; }
+    .article-title { color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; display: block; }
+    .article p { color: #bbb; line-height: 1.8; margin-top: 10px; }
+
+    /* Нумерованные списки внутри статей */
+    .article ol { padding-left: 20px; margin-top: 10px; }
+    .article ol li { margin-bottom: 8px; color: #bbb; }
+
+    .btn-back { display: inline-block; padding: 10px 20px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; }
+    .btn-back:hover { background: rgba(46, 204, 113, 0.1); }
+    </style>
+</head>
+<body>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-logo" style="color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin-bottom: 20px;">MENU</div>
+    <a href="index.html" class="nav-item">🏠 Główna</a>
+    <a href="konstytucja.html" class="nav-item active">📜 Konstytucja</a>
+    <a href="mody.html" class="nav-item">📦 Lista modów</a>
+    <a href="MAP_URL" target="_blank" class="nav-item">🌍 DynMap</a>
+</div>
+
+<div class="container">
+    <div class="const-card">
+        <h1 class="title">KONSTYTUCJA</h1>
+        <div class="last-update">Ostatnia aktualizacja: 2026-04-02</div>
+
+        <div class="article">
+            <span class="article-num">ARTYKUŁ 1</span>
+            <span class="article-title">Zasady ogólne</span>
+            <p>tutaj bedzie tekst konstytucji</p>
+            <ol>
+                <li>kazdy gracz jest cwelem</li>
+                <li>Zakaz niszczenia cudzej własności bez powodu.</li>
+            </ol
