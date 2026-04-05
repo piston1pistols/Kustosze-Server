@@ -368,7 +368,7 @@
     <a href="index.html" class="nav-item active">🏠 Główna</a>
     <a href="konstytucja.html" class="nav-item">📜 Konstytucja</a>
     <a href="mody.html" class="nav-item">📦 Lista modów</a>
-    <a href="MAP_URL" target="_blank" class="nav-item">🌍 DynMap</a>
+    <a href="javascript:void(0)" id="map-button" class="nav-item" onclick="redirectToMap()">🌍 DynMap (Live)</a>
 </div>
 
 <div class="main-content">
@@ -469,6 +469,33 @@
     </div>
 
 </div> <script>
+async function redirectToMap() {
+    const btn = document.getElementById('map-button');
+    const originalText = btn.innerText;
+
+    try {
+        btn.innerText = 'Łączenie... ⏳';
+        
+        // Запрашиваем link.json из той же папки (добавка ?v= убирает кеш)
+        const response = await fetch('./link.json?v=' + Date.now());
+        
+        if (!response.ok) throw new Error('Błąd pliku');
+
+        const data = await response.json();
+        
+        if (data.url && data.url.includes('trycloudflare.com')) {
+            window.open(data.url, '_blank');
+        } else {
+            alert('Mapa jest obecnie offline.');
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Błąd: Nie można pobrać adresu mapy.');
+    } finally {
+        btn.innerText = originalText;
+    }
+}
+
     const IP = 'access-britannica.gl.joinmc.link'; 
     async function updateStatus() {
         try {
