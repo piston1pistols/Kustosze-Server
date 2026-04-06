@@ -6,61 +6,33 @@
     <title>Konstytucja | Kustosze Server</title>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
-    
-    :root { 
-        --bg: #0f0f12; 
-        --card: #16161e; 
-        --accent: #2ecc71; 
-        --text: #e0e0e0; 
-    }
-
-    body { 
-        background-color: var(--bg); 
-        color: var(--text); 
-        font-family: 'Inter', sans-serif; 
-        margin: 0; 
-        line-height: 1.6; 
-    }
-
+    :root { --bg: #0f0f12; --card: #16161e; --accent: #2ecc71; --text: #e0e0e0; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
     .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
-
-    /* Меню */
     .menu-toggle { position: fixed; top: 25px; left: 30px; width: 35px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 2000; }
     .menu-toggle div { height: 4px; width: 100%; background-color: var(--accent); border-radius: 2px; }
     .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100vh; background: #111116; border-right: 2px solid var(--accent); padding: 60px 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1500; transition: 0.4s; }
     .sidebar.active { left: 0; }
     .nav-item { color: #888; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; padding: 12px 20px; border-radius: 8px; transition: 0.3s; }
-    .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
     .nav-item.active { color: var(--accent); background: rgba(46, 204, 113, 0.15); border-left: 4px solid var(--accent); }
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 1400; }
     .overlay.active { display: block; }
-
-    /* Карточка конституции */
-    .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; position: relative; }
+    .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; }
     h1.title { font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; color: #fff; margin-bottom: 5px; text-transform: uppercase; }
     .last-update { font-size: 0.85rem; color: var(--accent); margin-bottom: 40px; }
-
     .article { margin-bottom: 40px; }
     .article-num { color: var(--accent); font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; display: block; font-weight: 800; text-transform: uppercase; }
     .article-title { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; display: block; }
-    
     .article ol { padding-left: 20px; }
     .article ol li { margin-bottom: 15px; color: #bbb; }
-
     .btn-back { display: inline-block; padding: 12px 24px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; transition: 0.3s; }
     .btn-back:hover { background: var(--accent); color: #000; }
     </style>
 </head>
 <body>
 
-<div class="menu-toggle" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-</div>
-
+<div class="menu-toggle" onclick="toggleMenu()"><div></div><div></div><div></div></div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
 <div class="sidebar" id="sidebar">
     <div class="sidebar-logo" style="color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin-bottom: 20px; padding-left: 20px;">MENU</div>
     <a href="index.html" class="nav-item">🏠 Główna</a>
@@ -72,37 +44,34 @@
 <div class="container">
     <div class="const-card">
         <h1 class="title">KONSTYTUCJA SERWERA</h1>
-        [span_0](start_span)<div class="last-update">Z dnia 2 od powstania serwera</div>[span_0](end_span)
+        <div class="last-update">Z dnia 2 od powstania serwera</div>
 
         <div class="article">
-            <span class="article-num">ARTYKUŁ 1</span>
-            <span class="article-title">Zakazy i zasady serwera</span>
+            <span class="article-num">Zakazy i zasady serwera.</span>
             <ol>
-                <li>Na całym serwerze zabrania się korzystania z cheatów i ułatwień tj. [span_1](start_span)X-Ray, Fly, Auto totem.[span_1](end_span) [span_2](start_span)Kara: ban czasowy ustalony przez sąd lub perma-ban.[span_2](end_span)</li>
-                [span_3](start_span)<li>Niestosowanie się do zasad gameplayu i "osi czasu" skutkuje reprymendą, a przy powtórzeniu — karą finansową (oddanie itemów) lub banem.[span_3](end_span)</li>
-                [span_4](start_span)<li>Zakazuje się griffingu i bezpodstawnego utrudniania gry.[span_4](end_span) [span_5](start_span)Skargi (nick, opis, klip) należy zgłaszać administracji na Discordzie.[span_5](end_span)</li>
-                [span_6](start_span)<li>Gracz może wykonyвать czynności poza profesją na własny użytek, ale nie może czerpać z nich korzyści (np. górnik nie może sprzedawać drewna).[span_6](end_span)</li>
+                <li>§ 1. ) Na całym serwerze zabrania się korzystania z cheatów i różnego rodzaju ułatwień do gry tj. [span_5](start_span)X-Ray, Fly, Auto totem, przyłapanie gracza na korzystaniu z powyżej wymienionych modyfikacji (i nie tylko) zagrożone jest karą bana na czas ustalony przez sąd lub całkowitego wyrzucenia z serwera (Perma-ban).[span_5](end_span)</li>
+                <li>§ 2. ) Niestosowanie się lub niesubordynacja do określonych powyżej ustaleń dot. zasad i gameplayu gry, za pierwszym razem będzie traktowana ona upomnieniem w postaci reprymendy, gdy sytuacja sie powtarza (drugi raz lub wiekszą ilość razy) kara za niestosowanie się do zasad będzie zaostrzana w formie na przykład kary finansowej (w postaci oddania cennych itemów w grze) lub całkowity ban w przypadku wielokrotnego łamania umówionych zasad tj. nie stosowanie się do umówionej np. [span_6](start_span)"osi czasu" .[span_6](end_span)</li>
+                [span_7](start_span)<li>§ 3) Na serwerze zakazuje się Griffingu i innego rodzaju bezpodstawne utrudnianie gry innym graczą, w sytuacjach dot. gryffingu lub trollingu przez gracza powinno sie zglosić to do administracji serwera (wiadomość prywatna) wiadomość powinna zawierać nick irytującego gracza, krótki opis sytuacji i (jeśli to możliwe) klip z sytuacji ktory jasno pokazuje zaistniałą sytuacje (np. medal lub outplayed).[span_7](end_span)</li>
+                [span_8](start_span)<li>§ 4) Na serwerze panują zasady dotyczące różnych profesji wybranych przez gracza (na przykład kucharz, budowlaniec, górnik, drwal) każda z profesji ma swoje zadania i przywileje, zawód gracza nie jest do niego ściśle przypisany tzn. gracz o profesji np. górnik może sadzić rośliny, rąbać drewno itd. własny użytek, jednak gracz o tej profesji nie może czerpać korzysci w żaden sposób z jego zawodem nie związanym np. górnik nie może spredawać warzyw lub drewna.[span_8](end_span)</li>
             </ol>
         </div>
 
         <div class="article">
-            <span class="article-num">ARTYKUŁ 2</span>
-            <span class="article-title">Prawa i funkcje</span>
+            <span class="article-num">Prawa i funkcję panujące na serwerze.</span>
             <ol>
-                [span_7](start_span)<li>Każdy gracz musi wybrać zawód.[span_7](end_span) [span_8](start_span)Nabory odbywają się na Discordzie w celu wyrównania liczby osób w profesjach.[span_8](end_span)</li>
-                [span_9](start_span)<li>Możliwość zarobku istnieje jedynie z aktywności związanych z wybraną profesją (np. farmer zarabia na jedzeniu).[span_9](end_span)</li>
-                [span_10](start_span)<li>Propozycje zmian można zgłaszać adminom lub wrzucać książki do skrzyni obok sądu w świecie gry.[span_10](end_span)</li>
-                [span_11](start_span)<li>Każdy gracz ma równe prawa do budowy (za pozwoleniem), bogacenia się i zakładania nowych osad.[span_11](end_span)</li>
+                [span_9](start_span)<li>§ 1. ) Każdy gracz na serwerze musi wybrać sobie zawód jaki chce wykonywać, na serwerowym discordzie zostaną ogłoszone nabory na dane zawody w celu wyrównania liczby osób wykonujące dany zawód.[span_9](end_span)</li>
+                [span_10](start_span)<li>§ 2. ) Gracz o wybranej profesji ma możliwość zarobku jedynie z aktywności w sposób z nią związany tzn. drwal może zarabiać jedynie z sprzedarzy drewna, farmer tylko z sprzedarzy jedzenia itd.[span_10](end_span)</li>
+                [span_11](start_span)<li>§ 3. ) Każdy gracz na serwerze może zgłosić propozycje dot. zmiany czegoś na serwerze, takie propozycje powinno sie zgłosić do jednego z adminów serwera lub w serwerowym świecie wrzucić książke z napisana propozycją do skrzyni obok sądu.[span_11](end_span)</li>
+                [span_12](start_span)<li>§ 4. ) Na serwerze każdy gracz jest równie traktowany i ma równe prawa, każdy gracz ma takie same możliwości co do budowy nowych rzeczy (za pozwoleniem), bogacenia się i zakładanie nowych osad.[span_12](end_span)</li>
             </ol>
         </div>
 
         <div class="article">
-            <span class="article-num">ARTYKUŁ 3</span>
-            <span class="article-title">Sprawiedliwość i bany</span>
+            <span class="article-num">Sprawiedliwość na serwerze i bany.</span>
             <ol>
-                [span_12](start_span)<li>Za łamanie zasad grozi kara czasowa lub permanentna.[span_12](end_span)</li>
-                [span_13](start_span)<li>Gracz ma prawo odwołać się od bana u admina w wiadomości prywatnej.[span_13](end_span)</li>
-                [span_14](start_span)<li>Decyzje o banach podejmuje admin, jednak wspólne projekty i wybory lidera są rozstrzygane w głosowaniach graczy.[span_14](end_span)</li>
+                [span_13](start_span)<li>§ 1. ) Za łamanie zasad wspomnianych w artykule pierwszym groźi kara czasowa lub ban pernamentny.[span_13](end_span)</li>
+                [span_14](start_span)<li>§ 2.) Gracz ma prawo odwołać sie od bana w wypadku uniezasadnionego bana lub kiedy gracz uważa ze ban był dany niesłusznie, w wypadku kiedy gracz chce odwołać sie do bana musi on napisać na wiadomości prywatne adminowi serwera.[span_14](end_span)</li>
+                [span_15](start_span)<li>§ 3.) Decyzje dotyczące zbanowania gracza są zależne od admina, jednak wszystkie sprawy które dotyczą świata serwera są podejmowane przez wszystkich graczy podczas głosowania np. budowa nowego wspólnego projektu, wybory na lidera serwera itd.[span_15](end_span)</li>
             </ol>
         </div>
 
@@ -115,7 +84,6 @@ function toggleMenu() {
     document.getElementById('sidebar').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
-
 async function redirectToMap() {
     const btn = document.getElementById('map-button');
     const originalText = btn.innerText;
@@ -123,18 +91,11 @@ async function redirectToMap() {
         btn.innerText = 'Łączenie... ⏳';
         const response = await fetch('./link.json?v=' + Date.now());
         const data = await response.json();
-        if (data.url) {
-            window.open(data.url, '_blank');
-        } else {
-            alert('Mapa jest offline.');
-        }
-    } catch (e) {
-        alert('Błąd ładowania mapy.');
-    } finally {
-        btn.innerText = originalText;
-    }
+        if (data.url) { window.open(data.url, '_blank'); }
+        else { alert('Mapa jest offline.'); }
+    } catch (e) { alert('Błąd ładowania mapy.'); }
+    finally { btn.innerText = originalText; }
 }
 </script>
-
 </body>
 </html>
