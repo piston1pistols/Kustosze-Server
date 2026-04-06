@@ -24,7 +24,7 @@
 
     .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
 
-    /* Стили меню */
+    /* Меню */
     .menu-toggle { position: fixed; top: 25px; left: 30px; width: 35px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 2000; }
     .menu-toggle div { height: 4px; width: 100%; background-color: var(--accent); border-radius: 2px; }
     .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100vh; background: #111116; border-right: 2px solid var(--accent); padding: 60px 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1500; transition: 0.4s; }
@@ -35,31 +35,19 @@
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 1400; }
     .overlay.active { display: block; }
 
-    /* Стили карточки */
-    .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; position: relative; overflow: hidden; }
-    .const-card::before {
-        content: "⚖";
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        font-size: 15rem;
-        opacity: 0.03;
-        color: var(--accent);
-        pointer-events: none;
-    }
+    /* Карточка конституции */
+    .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; position: relative; }
+    h1.title { font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; color: #fff; margin-bottom: 5px; text-transform: uppercase; }
+    .last-update { font-size: 0.85rem; color: var(--accent); margin-bottom: 40px; }
 
-    h1.title { font-family: 'Rajdhani', sans-serif; font-size: 3rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
-    .last-update { font-size: 0.8rem; color: var(--accent); margin-bottom: 40px; opacity: 0.8; }
+    .article { margin-bottom: 40px; }
+    .article-num { color: var(--accent); font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; display: block; font-weight: 800; text-transform: uppercase; }
+    .article-title { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; display: block; }
+    
+    .article ol { padding-left: 20px; }
+    .article ol li { margin-bottom: 15px; color: #bbb; }
 
-    .article { margin-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 20px; }
-    .article-num { color: var(--accent); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; display: block; font-weight: 800; letter-spacing: 2px; }
-    .article-title { color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; display: block; }
-    .article p { color: #bbb; line-height: 1.8; margin-top: 10px; }
-
-    .article ol { padding-left: 20px; margin-top: 10px; }
-    .article ol li { margin-bottom: 12px; color: #bbb; padding-left: 10px; }
-
-    .btn-back { display: inline-block; padding: 12px 25px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+    .btn-back { display: inline-block; padding: 12px 24px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; transition: 0.3s; }
     .btn-back:hover { background: var(--accent); color: #000; }
     </style>
 </head>
@@ -84,37 +72,37 @@
 <div class="container">
     <div class="const-card">
         <h1 class="title">KONSTYTUCJA SERWERA</h1>
-        [span_1](start_span)<div class="last-update">Z dnia 2 od powstania serwera[span_1](end_span)</div>
+        [span_0](start_span)<div class="last-update">Z dnia 2 od powstania serwera</div>[span_0](end_span)
 
         <div class="article">
             <span class="article-num">ARTYKUŁ 1</span>
-            <span class="article-title">Zakazy и zasady serwera</span>
+            <span class="article-title">Zakazy i zasady serwera</span>
             <ol>
-                <li>Na całym serwerze zabrania się korzystania z cheatów i ułatwień tj. X-Ray, Fly, Auto totem. [span_2](start_span)Kara: ban czasowy ustalony przez sąd lub perma-ban[span_2](end_span).</li>
-                [span_3](start_span)<li>Niestosowanie się do zasad gameplayu и "osi czasu" skutkuje reprymendą, a przy powtórzeniu — karą finansową (oddanie itemów) lub banem[span_3](end_span).</li>
-                <li>Zakazuje się griffingu и bezpodstawnego utrudniania gry. [span_4](start_span)Skargi (nick, opis, klip) należy zgłaszać administracji na Discordzie[span_4](end_span).</li>
-                [span_5](start_span)<li>Gracz może wykonywać czynności poza profesją na własny użytek, ale nie może czerpać z nich korzyści (np. górnik nie może sprzedawać drewna)[span_5](end_span).</li>
+                <li>Na całym serwerze zabrania się korzystania z cheatów i ułatwień tj. [span_1](start_span)X-Ray, Fly, Auto totem.[span_1](end_span) [span_2](start_span)Kara: ban czasowy ustalony przez sąd lub perma-ban.[span_2](end_span)</li>
+                [span_3](start_span)<li>Niestosowanie się do zasad gameplayu i "osi czasu" skutkuje reprymendą, a przy powtórzeniu — karą finansową (oddanie itemów) lub banem.[span_3](end_span)</li>
+                [span_4](start_span)<li>Zakazuje się griffingu i bezpodstawnego utrudniania gry.[span_4](end_span) [span_5](start_span)Skargi (nick, opis, klip) należy zgłaszać administracji na Discordzie.[span_5](end_span)</li>
+                [span_6](start_span)<li>Gracz może wykonyвать czynności poza profesją na własny użytek, ale nie może czerpać z nich korzyści (np. górnik nie może sprzedawać drewna).[span_6](end_span)</li>
             </ol>
         </div>
 
         <div class="article">
             <span class="article-num">ARTYKUŁ 2</span>
-            <span class="article-title">Prawa и funkcje</span>
+            <span class="article-title">Prawa i funkcje</span>
             <ol>
-                <li>Każdy gracz musi wybrać zawód. [span_6](start_span)Nabory odbywają się na Discordzie w celu wyrównania liczby osób w profesjach[span_6](end_span).</li>
-                [span_7](start_span)<li>Możliwość zarobku istnieje jedynie z aktywności związanych z wybraną profesją (np. farmer zarabia na jedzeniu)[span_7](end_span).</li>
-                [span_8](start_span)<li>Propozycje zmian można zgłaszać adminom lub wrzucać książki do skrzyni obok sądu w świecie gry[span_8](end_span).</li>
-                [span_9](start_span)<li>Każdy gracz ma równe prawa do budowy (za pozwoleniem), bogacenia się i zakładania nowych osad[span_9](end_span).</li>
+                [span_7](start_span)<li>Każdy gracz musi wybrać zawód.[span_7](end_span) [span_8](start_span)Nabory odbywają się na Discordzie w celu wyrównania liczby osób w profesjach.[span_8](end_span)</li>
+                [span_9](start_span)<li>Możliwość zarobku istnieje jedynie z aktywności związanych z wybraną profesją (np. farmer zarabia na jedzeniu).[span_9](end_span)</li>
+                [span_10](start_span)<li>Propozycje zmian można zgłaszać adminom lub wrzucać książki do skrzyni obok sądu w świecie gry.[span_10](end_span)</li>
+                [span_11](start_span)<li>Każdy gracz ma równe prawa do budowy (za pozwoleniem), bogacenia się i zakładania nowych osad.[span_11](end_span)</li>
             </ol>
         </div>
 
         <div class="article">
             <span class="article-num">ARTYKUŁ 3</span>
-            <span class="article-title">Sprawiedliwość и bany</span>
+            <span class="article-title">Sprawiedliwość i bany</span>
             <ol>
-                [span_10](start_span)<li>Za łamanie zasad grozi kara czasowa lub permanentna[span_10](end_span).</li>
-                [span_11](start_span)<li>Gracz ma prawo odwołać się od bana u admina w wiadomości prywatnej[span_11](end_span).</li>
-                [span_12](start_span)<li>Decyzje o banach podejmuje admin, jednak wspólne projekty и wybory lidera są rozstrzygane w głosowaniach graczy[span_12](end_span).</li>
+                [span_12](start_span)<li>Za łamanie zasad grozi kara czasowa lub permanentna.[span_12](end_span)</li>
+                [span_13](start_span)<li>Gracz ma prawo odwołać się od bana u admina w wiadomości prywatnej.[span_13](end_span)</li>
+                [span_14](start_span)<li>Decyzje o banach podejmuje admin, jednak wspólne projekty i wybory lidera są rozstrzygane w głosowaniach graczy.[span_14](end_span)</li>
             </ol>
         </div>
 
@@ -131,21 +119,17 @@ function toggleMenu() {
 async function redirectToMap() {
     const btn = document.getElementById('map-button');
     const originalText = btn.innerText;
-
     try {
         btn.innerText = 'Łączenie... ⏳';
         const response = await fetch('./link.json?v=' + Date.now());
-        if (!response.ok) throw new Error('Błąd pliku link.json');
         const data = await response.json();
-        
-        if (data.url && data.url.includes('trycloudflare.com')) {
+        if (data.url) {
             window.open(data.url, '_blank');
         } else {
-            alert('Mapa jest obecnie offline.');
+            alert('Mapa jest offline.');
         }
-    } catch (error) {
-        console.error(error);
-        alert('Błąd: Nie można pobrać adresu mapy.');
+    } catch (e) {
+        alert('Błąd ładowania mapy.');
     } finally {
         btn.innerText = originalText;
     }
