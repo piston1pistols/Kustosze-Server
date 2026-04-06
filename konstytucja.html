@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konstytucja | Kustosze Server</title>
     <style>
-    /* Копируем основные переменные и стили из index.html */
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
     
     :root { 
@@ -25,20 +24,19 @@
 
     .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
 
-    /* Стили для бокового меню (такие же, как на главной) */
+    /* Стили меню */
     .menu-toggle { position: fixed; top: 25px; left: 30px; width: 35px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 2000; }
     .menu-toggle div { height: 4px; width: 100%; background-color: var(--accent); border-radius: 2px; }
     .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100vh; background: #111116; border-right: 2px solid var(--accent); padding: 60px 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1500; transition: 0.4s; }
     .sidebar.active { left: 0; }
-    .nav-item { color: #888; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; padding: 12px 20px; border-radius: 8px; }
+    .nav-item { color: #888; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; padding: 12px 20px; border-radius: 8px; transition: 0.3s; }
+    .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
     .nav-item.active { color: var(--accent); background: rgba(46, 204, 113, 0.15); border-left: 4px solid var(--accent); }
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 1400; }
     .overlay.active { display: block; }
 
-    /* Специфические стили для Конституции */
+    /* Стили карточки */
     .const-card { background: var(--card); border-radius: 16px; padding: 40px; border: 1px solid #2a2a35; position: relative; overflow: hidden; }
-    
-    /* Декоративный символ на фоне */
     .const-card::before {
         content: "⚖";
         position: absolute;
@@ -55,15 +53,14 @@
 
     .article { margin-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 20px; }
     .article-num { color: var(--accent); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; display: block; font-weight: 800; letter-spacing: 2px; }
-    .article-title { color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; display: block; }
+    .article-title { color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; display: block; }
     .article p { color: #bbb; line-height: 1.8; margin-top: 10px; }
 
-    /* Нумерованные списки внутри статей */
     .article ol { padding-left: 20px; margin-top: 10px; }
-    .article ol li { margin-bottom: 8px; color: #bbb; }
+    .article ol li { margin-bottom: 12px; color: #bbb; padding-left: 10px; }
 
-    .btn-back { display: inline-block; padding: 10px 20px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; }
-    .btn-back:hover { background: rgba(46, 204, 113, 0.1); }
+    .btn-back { display: inline-block; padding: 12px 25px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+    .btn-back:hover { background: var(--accent); color: #000; }
     </style>
 </head>
 <body>
@@ -77,23 +74,83 @@
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <div class="sidebar" id="sidebar">
-    <div class="sidebar-logo" style="color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin-bottom: 20px;">MENU</div>
+    <div class="sidebar-logo" style="color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin-bottom: 20px; padding-left: 20px;">MENU</div>
     <a href="index.html" class="nav-item">🏠 Główna</a>
     <a href="konstytucja.html" class="nav-item active">📜 Konstytucja</a>
     <a href="mody.html" class="nav-item">📦 Lista modów</a>
-    <a href="MAP_URL" target="_blank" class="nav-item">🌍 DynMap</a>
+    <a href="javascript:void(0)" id="map-button" class="nav-item" onclick="redirectToMap()">🌍 BlueMap (Live)</a>
 </div>
 
 <div class="container">
     <div class="const-card">
-        <h1 class="title">KONSTYTUCJA</h1>
-        <div class="last-update">Ostatnia aktualizacja: 2026-04-02</div>
+        <h1 class="title">KONSTYTUCJA SERWERA</h1>
+        [span_1](start_span)<div class="last-update">Z dnia 2 od powstania serwera[span_1](end_span)</div>
 
         <div class="article">
             <span class="article-num">ARTYKUŁ 1</span>
-            <span class="article-title">Zasady ogólne</span>
-            <p>tutaj bedzie tekst konstytucji</p>
+            <span class="article-title">Zakazy и zasady serwera</span>
             <ol>
-                <li>kazdy gracz jest cwelem</li>
-                <li>Zakaz niszczenia cudzej własności bez powodu.</li>
-            </ol
+                <li>Na całym serwerze zabrania się korzystania z cheatów i ułatwień tj. X-Ray, Fly, Auto totem. [span_2](start_span)Kara: ban czasowy ustalony przez sąd lub perma-ban[span_2](end_span).</li>
+                [span_3](start_span)<li>Niestosowanie się do zasad gameplayu и "osi czasu" skutkuje reprymendą, a przy powtórzeniu — karą finansową (oddanie itemów) lub banem[span_3](end_span).</li>
+                <li>Zakazuje się griffingu и bezpodstawnego utrudniania gry. [span_4](start_span)Skargi (nick, opis, klip) należy zgłaszać administracji na Discordzie[span_4](end_span).</li>
+                [span_5](start_span)<li>Gracz może wykonywać czynności poza profesją na własny użytek, ale nie może czerpać z nich korzyści (np. górnik nie może sprzedawać drewna)[span_5](end_span).</li>
+            </ol>
+        </div>
+
+        <div class="article">
+            <span class="article-num">ARTYKUŁ 2</span>
+            <span class="article-title">Prawa и funkcje</span>
+            <ol>
+                <li>Każdy gracz musi wybrać zawód. [span_6](start_span)Nabory odbywają się na Discordzie w celu wyrównania liczby osób w profesjach[span_6](end_span).</li>
+                [span_7](start_span)<li>Możliwość zarobku istnieje jedynie z aktywności związanych z wybraną profesją (np. farmer zarabia na jedzeniu)[span_7](end_span).</li>
+                [span_8](start_span)<li>Propozycje zmian można zgłaszać adminom lub wrzucać książki do skrzyni obok sądu w świecie gry[span_8](end_span).</li>
+                [span_9](start_span)<li>Każdy gracz ma równe prawa do budowy (za pozwoleniem), bogacenia się i zakładania nowych osad[span_9](end_span).</li>
+            </ol>
+        </div>
+
+        <div class="article">
+            <span class="article-num">ARTYKUŁ 3</span>
+            <span class="article-title">Sprawiedliwość и bany</span>
+            <ol>
+                [span_10](start_span)<li>Za łamanie zasad grozi kara czasowa lub permanentna[span_10](end_span).</li>
+                [span_11](start_span)<li>Gracz ma prawo odwołać się od bana u admina w wiadomości prywatnej[span_11](end_span).</li>
+                [span_12](start_span)<li>Decyzje o banach podejmuje admin, jednak wspólne projekty и wybory lidera są rozstrzygane w głosowaniach graczy[span_12](end_span).</li>
+            </ol>
+        </div>
+
+        <a href="index.html" class="btn-back">⬅ Powrót do strony głównej</a>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+
+async function redirectToMap() {
+    const btn = document.getElementById('map-button');
+    const originalText = btn.innerText;
+
+    try {
+        btn.innerText = 'Łączenie... ⏳';
+        const response = await fetch('./link.json?v=' + Date.now());
+        if (!response.ok) throw new Error('Błąd pliku link.json');
+        const data = await response.json();
+        
+        if (data.url && data.url.includes('trycloudflare.com')) {
+            window.open(data.url, '_blank');
+        } else {
+            alert('Mapa jest obecnie offline.');
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Błąd: Nie można pobrać adresu mapy.');
+    } finally {
+        btn.innerText = originalText;
+    }
+}
+</script>
+
+</body>
+</html>
